@@ -1,0 +1,25 @@
+name: Test Container Upload
+on:
+  workflow_dispatch
+
+jobs:
+  build_test_upload:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Image build
+      run: docker build -t ghcr.io/jwithersci/priv-jwithersci:latest .
+    - name: log in to the regisry
+      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+    - name: tag image
+      run: docker tag ghcr.io/jwithersci/priv-jwithersci:latest ghcr.io/jwithersci/priv-jwithersci:$GITHUB_SHA
+    - name: show images
+      run: docker images
+    - name: upload image
+      run: |
+        docker push ghcr.io/jwithersci/priv-jwithersci:latest
+#        docker push ghcr.io/citests1/first-action:$GITHUB_SHA
+      
+      
+     
+
