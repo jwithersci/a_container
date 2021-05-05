@@ -18,7 +18,7 @@ jobs:
     - name: upload image
       run: |
         docker push ghcr.io/jwithersci/priv-jwithersci:$GITHUB_SHA
-#        docker push ghcr.io/jwithersci/priv-jwithersci:latest      
+        docker push ghcr.io/jwithersci/priv-jwithersci:latest      
       
      
 
