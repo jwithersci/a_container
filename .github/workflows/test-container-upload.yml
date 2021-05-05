@@ -17,8 +17,8 @@ jobs:
       run: docker images
     - name: upload image
       run: |
-        docker push ghcr.io/jwithersci/priv-jwithersci:latest
-#        docker push ghcr.io/citests1/first-action:$GITHUB_SHA
+#        docker push ghcr.io/jwithersci/priv-jwithersci:latest
+        docker push ghcr.io/citests1/first-action:$GITHUB_SHA
       
       
      
